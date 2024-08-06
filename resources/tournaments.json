@@ -1,0 +1,46 @@
+[
+    {
+        "id": 2,
+        "name": "Pôquer do Cinto de Alho 2",
+        "date": "2024-04-30T20:30:00Z",
+        "buyin": 30,
+        "events": [
+            { "killer": "Émerson", "killed": "Ariranha", "date": "2024-04-30T22:35:00Z" },
+            { "killer": "Ariranha", "killed": "Laimer", "date": "2024-04-15T23:28:00Z" },
+            { "killer": "Carlos", "killed": "Caê", "date": "2024-04-15T23:50:00Z" },
+            { "killer": "Ariranha", "killed": "Émerson", "date": "2024-04-15T23:56:00Z" },
+            { "killer": "Carlos", "killed": "Ariranha", "date": "2024-04-15T23:59:00Z" }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Pôquer do Cinto de Alho 3",
+        "date": "2024-03-21T20:30:00Z",
+        "buyin": 30,
+        "events": [
+            { "killer": "Carlos", "killed": "Émerson", "date": "2024-03-21T21:56:00Z" },
+            { "killer": "Marlon", "killed": "Júlio", "date": "2024-03-21T22:56:00Z" },
+            { "killer": "Émerson", "killed": "Marlon", "date": "2024-03-21T23:04:00Z" },
+            { "killer": "Bruno", "killed": "Carlos", "date": "2024-03-21T23:34:00Z" },
+            { "killer": "Bruno", "killed": "Laimer", "date": "2024-03-21T23:43:00Z" },
+            { "killer": "Émerson", "killed": "Bruno", "date": "2024-03-21T23:50:00Z" }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Pôquer do Cinto de Alho",
+        "date": "2024-07-15T10:27:00Z",
+        "buyin": 30,
+        "events": [
+            { "killer": "Émerson", "killed": "Laimer", "date": "2024-07-15T10:00:00Z" },
+            { "killer": "Émerson", "killed": "Caê", "date": "2024-07-15T10:05:00Z" },
+            { "killer": "Caê", "killed": "Carlos", "date": "2024-07-15T10:10:00Z" },
+            { "killer": "Lair", "killed": "Centeno", "date": "2024-07-15T10:15:00Z" },
+            { "killer": "Caê", "killed": "Lenon", "date": "2024-07-15T10:17:00Z" },
+            { "killer": "Laimer", "killed": "Émerson", "date": "2024-07-15T10:20:00Z" },
+            { "killer": "Caê", "killed": "Lair", "date": "2024-07-15T10:25:00Z" },
+            { "killer": "Caê", "killed": "Carlos", "date": "2024-07-15T10:30:00Z" },
+            { "killer": "Laimer", "killed": "Caê", "date": "2024-07-15T10:35:00Z" }
+        ]
+    }
+]

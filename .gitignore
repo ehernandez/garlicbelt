@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# IDE-specific files
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Dependency directory
+dependency/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test Files
+*.pdf
+*.csv
+*.sql
+
+# Code Coverage
+coverage/
+.nyc_output
