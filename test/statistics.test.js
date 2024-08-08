@@ -58,5 +58,9 @@ describe('Estatísticas dos Torneios', () => {
         const player = statistics.getPlayer('Carlos');
         expect(player.player).to.be.equal('Carlos');
         expect(player.kills).to.be.equal(5);
+
+        console.table(statistics.getRankingByYear());
+        console.table(statistics.getRankingByYear(2023));
+        console.table(statistics.getRankingByYear(2024));
     });
 });

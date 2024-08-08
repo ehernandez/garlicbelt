@@ -27,11 +27,15 @@ async function createRanking(tournaments) {
 
         let allPlayers = [];
         allRankings.forEach(year => {
-            //console.log(year.rankings);
             allPlayers.push(year.rankings)
         })
-        //console.log()
-        allRankings.push({ year: 'all', rankings: consolidateYear(allPlayers.flat()) });
+
+        let mappedPlayers = allPlayers.flat().map(player => ({
+            ... player,
+            position: player['best-position']
+        }));
+
+        allRankings.push({ year: 'all', rankings: consolidateYear(mappedPlayers) });
 
     } catch (err) {
         console.error("Erro ao criar o ranking:", err);
@@ -63,7 +67,7 @@ function consolidateYear(rankings) {
             acc[player.player]['best-position'] = Math.min(acc[player.player]['best-position'], player.position);
             acc[player.player].games++;
         } else {
-            acc[player.player] = { ...player, 'best-position': player.position, games: 1, wins: 0, itm: 0 };
+            acc[player.player] = { ...player, 'best-position': player['best-position'] || player.position, games: 1, wins: 0, itm: 0 };
             delete acc[player.player].position;
         }
 
