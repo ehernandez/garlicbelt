@@ -34,33 +34,41 @@ describe('Estatísticas dos Torneios', () => {
     it('deve retornar Émerson como o jogador que mais matou em 2024', async function() {
         await statistics.getRankings();
 
-        const player = statistics.getTopKiller(2024);
+        const player = statistics.getTopKiller('2024');
         expect(player.player).to.be.equal('Émerson');
     });
 
-    it('deve retornar Carlos como o jogador que mais lucrativo em 2024', async function() {
+    it('deve retornar Émerson como o jogador que mais matou em todos os anos', async function() {
         await statistics.getRankings();
 
-        const player = statistics.getTopProfitable(2024);
-        expect(player.player).to.be.equal('Carlos');
+        const player = statistics.getTopKiller();
+        expect(player.player).to.be.equal('Émerson');
     });
 
-    it('deve retornar Carlos como o jogador que mais lucrativo em 2024', async function() {
+    it('deve retornar Laimer como o jogador que mais lucrativo em 2024', async function() {
         await statistics.getRankings();
-
-        const player = statistics.getTopProfitable(2024);
-        expect(player.player).to.be.equal('Carlos');
+        
+        const player = statistics.getTopProfitable('2024');
+        expect(player.player).to.be.equal('Laimer');
     });    
     
+    it('deve retornar Magrin como o jogador que mais lucrativo em todos os anos', async function() {
+        await statistics.getRankings();
+
+        const player = statistics.getTopProfitable();
+        expect(player.player).to.be.equal('Magrin');
+    });
+
     it('deve retornar os dados do jogador Carlos', async function() {
         await statistics.getRankings();
 
+        console.table(statistics.getRankingByYear());
+        console.table(statistics.getRankingByYear('2023'));
+        console.table(statistics.getRankingByYear('2024'));
+
         const player = statistics.getPlayer('Carlos');
         expect(player.player).to.be.equal('Carlos');
-        expect(player.kills).to.be.equal(5);
+        expect(player.kills).to.be.equal(4);
 
-        console.table(statistics.getRankingByYear());
-        console.table(statistics.getRankingByYear(2023));
-        console.table(statistics.getRankingByYear(2024));
     });
 });

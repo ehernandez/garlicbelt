@@ -15,28 +15,35 @@
     {
         "id": 4,
         "name": "Pôquer Teste 4",
-        "date": "2023-04-30T20:30:00Z",
-        "buyin": 30,
+        "date": "2023-03-28T20:30:00Z",
+        "buyin": 25,
         "events": [
-            { "killer": "Émerson", "killed": "Ariranha", "date": "2023-04-30T22:35:00Z" },
-            { "killer": "Ariranha", "killed": "Laimer", "date": "2023-04-15T23:28:00Z" },
-            { "killer": "Carlos", "killed": "Caê", "date": "2023-04-15T23:50:00Z" },
-            { "killer": "Ariranha", "killed": "Émerson", "date": "2023-04-15T23:56:00Z" },
-            { "killer": "Carlos", "killed": "Ariranha", "date": "2023-04-15T23:59:00Z" }
+            { "killer": "Émerson", "killed": "Spohr", "date": "2023-03-28T20:30:00Z" },
+            { "killer": "Émerson", "killed": "Bruno", "date": "2023-03-28T20:31:00Z" },
+            { "killer": "Laimer", "killed": "Patrola", "date": "2023-03-28T20:32:00Z" },
+            { "killer": "Émerson", "killed": "Magrin", "date": "2023-03-28T20:33:00Z" },
+            { "killer": "Laimer", "killed": "Bruno", "date": "2023-03-28T20:34:00Z" },
+            { "killer": "Magrin", "killed": "Patrola", "date": "2023-03-28T20:35:00Z" },
+            { "killer": "Carlos", "killed": "Émerson", "date": "2023-03-28T20:35:30Z" },
+            { "killer": "Laimer", "killed": "Spohr", "date": "2023-03-28T20:36:00Z" },
+            { "killer": "Magrin", "killed": "Carlos", "date": "2023-03-28T20:37:00Z" },
+            { "killer": "Laimer", "killed": "Caê", "date": "2023-03-28T20:38:00Z" },
+            { "killer": "Magrin", "killed": "Laimer", "date": "2023-03-28T20:39:00Z" },
+            { "killer": "Magrin", "killed": "Júlio", "date": "2023-03-28T20:40:00Z" }
         ]
     },
     {
         "id": 3,
         "name": "Pôquer Teste 3",
-        "date": "2024-03-21T20:30:00Z",
+        "date": "2024-03-22T20:30:00Z",
         "buyin": 30,
         "events": [
-            { "killer": "Carlos", "killed": "Émerson", "date": "2024-03-21T21:56:00Z" },
-            { "killer": "Marlon", "killed": "Júlio", "date": "2024-03-21T22:56:00Z" },
-            { "killer": "Émerson", "killed": "Marlon", "date": "2024-03-21T23:04:00Z" },
-            { "killer": "Bruno", "killed": "Carlos", "date": "2024-03-21T23:34:00Z" },
-            { "killer": "Bruno", "killed": "Laimer", "date": "2024-03-21T23:43:00Z" },
-            { "killer": "Émerson", "killed": "Bruno", "date": "2024-03-21T23:50:00Z" }
+            { "killer": "Carlos", "killed": "Émerson", "date": "2024-03-22T21:56:00Z" },
+            { "killer": "Marlon", "killed": "Júlio", "date": "2024-03-22T22:56:00Z" },
+            { "killer": "Émerson", "killed": "Marlon", "date": "2024-03-22T23:04:00Z" },
+            { "killer": "Bruno", "killed": "Carlos", "date": "2024-03-22T23:34:00Z" },
+            { "killer": "Bruno", "killed": "Laimer", "date": "2024-03-22T23:43:00Z" },
+            { "killer": "Émerson", "killed": "Bruno", "date": "2024-03-22T23:50:00Z" }
         ]
     },
     {
@@ -54,6 +61,20 @@
             { "killer": "Caê", "killed": "Lair", "date": "2024-07-15T10:25:00Z" },
             { "killer": "Caê", "killed": "Carlos", "date": "2024-07-15T10:30:00Z" },
             { "killer": "Laimer", "killed": "Caê", "date": "2024-07-15T10:35:00Z" }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Pôquer Teste 5",
+        "date": "2023-03-01T20:30:00Z",
+        "buyin": 25,
+        "events": [
+            { "killer": "Caê", "killed": "Carlos", "date": "2023-03-01T20:30:00Z" },
+            { "killer": "Lucas", "killed": "Carlos", "date": "2023-03-01T20:31:00Z" },
+            { "killer": "Bruno", "killed": "Caê", "date": "2023-03-01T20:32:00Z" },
+            { "killer": "Lucas", "killed": "Bruno", "date": "2023-03-01T20:33:00Z" },
+            { "killer": "Émerson", "killed": "Júlio", "date": "2023-03-01T20:34:00Z" },
+            { "killer": "Émerson", "killed": "Lucas", "date": "2023-03-01T20:35:00Z" }
         ]
     }
 ]
