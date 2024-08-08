@@ -1,5 +1,7 @@
-const reader = require('../src/reader');
-const rankings = require('../src/rankings');
+const reader = require('./reader');
+const rankings = require('./rankings');
+const originalfilePath = './resources/tournaments.json';
+const Reader = require('./reader.js');
 
 let allRankings = [];
 
@@ -16,28 +18,32 @@ async function createRanking(tournaments) {
             }
 
             rankingsByYear[year].push(...finalRanking);
-            //console.log(year);
         });
 
         Object.keys(rankingsByYear).forEach(year => {
-            const consolidated = consolidateYear(rankingsByYear[year]);
+            const consolidated = consolidateYear(Object.values(rankingsByYear[year]));
             allRankings.push({ year, rankings: consolidated });
         });
 
-        allRankings = rankingsByYear;
     } catch (err) {
         console.error("Erro ao criar o ranking:", err);
     }
 }
 
+async function getRankings(tournaments) {
+    let data = tournaments;
 
-async function getRankings(filePath) {
     if (allRankings.length === 0) {
-        await createRanking(filePath);
+        if (!tournaments) {
+            data = await Reader.readTournamentsFromFile(originalfilePath);
+        }
+
+        await createRanking(data);
     }
 
     return allRankings;
 }
+
 
 function consolidateYear(rankings) {
     const consolidated = Object.values(rankings.reduce((acc, player) => {
@@ -72,21 +78,30 @@ function consolidateYear(rankings) {
     return consolidated;
 }
 
-function getMostKiller(players) {
+function getMostKiller(year) {
+    const players = getRankingByYear(year);
     return players.reduce((topPlayer, currentPlayer) => {
         return (currentPlayer.kills > topPlayer.kills) ? currentPlayer : topPlayer;
       }, players[0]);
 }
 
-function getMostProfitable(players) {
+function getMostProfitable(year) {
+    const players = getRankingByYear(year);
     return players.reduce((topPlayer, currentPlayer) => {
         return (currentPlayer.profit > topPlayer.profit) ? currentPlayer : topPlayer;
       }, players[0]);
+}
+
+function getRankingByYear(year) {
+    if (!year) return allRankings;
+    
+    return (allRankings.find(item => item.year === year)?.rankings || allRankings.flatMap(item => item.rankings));
 }
 
 module.exports = {
     getMostKiller,
     consolidateYear,
     getMostProfitable,
-    getRankings
+    getRankings,
+    getRankingByYear
 };

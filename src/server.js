@@ -35,14 +35,17 @@ app.get('/final-ranking/:tournamentId', (req, res) => {
 
 app.get('/ranking/:year', (req, res) => {
     const { year } = req.params;
-    res.json(rankings[year])
+    res.json(Statistics.getRankingByYear(year));
 });
 
 app.get('/killer/:year', (req, res) => {
     const { year } = req.params;
-    const ranking = rankings[year];
+    res.json(Statistics.getMostKiller(year))
+});
 
-    res.json(Statistics.getMostKiller(rankings))
+app.get('/profitable/:year', (req, res) => {
+    const { year } = req.params;
+    res.json(Statistics.getMostProfitable(year))
 });
 
 let rankings;

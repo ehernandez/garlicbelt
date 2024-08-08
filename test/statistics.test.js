@@ -31,15 +31,17 @@ describe('Estatísticas dos Torneios', () => {
         expect(year2024.length).to.be.equal(11);
     });
 
-    it('deve retornar Émerson como o jogador que mais matou em 2024', function() {
-        const year2024 = statistics.consolidateYear(rankings);
-        const player = statistics.getMostKiller(year2024);
+    it('deve retornar Émerson como o jogador que mais matou em 2024', async function() {
+        await statistics.getRankings();
+        
+        const player = statistics.getMostKiller(2024);
         expect(player.player).to.be.equal('Émerson');
     });
 
-    it('deve retornar Carlos como o jogador que mais lucrativo em 2024', function() {
-        const year2024 = statistics.consolidateYear(rankings);
-        const player = statistics.getMostProfitable(year2024);
+    it('deve retornar Carlos como o jogador que mais lucrativo em 2024', async function() {
+        await statistics.getRankings();
+
+        const player = statistics.getMostProfitable(2024);
         expect(player.player).to.be.equal('Carlos');
     });
 });
