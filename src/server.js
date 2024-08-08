@@ -40,12 +40,17 @@ app.get('/ranking/:year', (req, res) => {
 
 app.get('/killer/:year', (req, res) => {
     const { year } = req.params;
-    res.json(Statistics.getMostKiller(year))
+    res.json(Statistics.getTopKiller(year))
 });
 
 app.get('/profitable/:year', (req, res) => {
     const { year } = req.params;
-    res.json(Statistics.getMostProfitable(year))
+    res.json(Statistics.getTopProfitable(year))
+});
+
+app.get('/player/:name', (req, res) => {
+    const { name } = req.params;
+    res.json(Statistics.getPlayer(name));
 });
 
 let rankings;

@@ -25,6 +25,14 @@ async function createRanking(tournaments) {
             allRankings.push({ year, rankings: consolidated });
         });
 
+        let allPlayers = [];
+        allRankings.forEach(year => {
+            //console.log(year.rankings);
+            allPlayers.push(year.rankings)
+        })
+        //console.log()
+        allRankings.push({ year: 'all', rankings: consolidateYear(allPlayers.flat()) });
+
     } catch (err) {
         console.error("Erro ao criar o ranking:", err);
     }
@@ -78,30 +86,34 @@ function consolidateYear(rankings) {
     return consolidated;
 }
 
-function getMostKiller(year) {
+function getTopKiller(year) {
     const players = getRankingByYear(year);
     return players.reduce((topPlayer, currentPlayer) => {
         return (currentPlayer.kills > topPlayer.kills) ? currentPlayer : topPlayer;
       }, players[0]);
 }
 
-function getMostProfitable(year) {
+function getTopProfitable(year) {
     const players = getRankingByYear(year);
     return players.reduce((topPlayer, currentPlayer) => {
         return (currentPlayer.profit > topPlayer.profit) ? currentPlayer : topPlayer;
       }, players[0]);
 }
 
+function getPlayer(name) {
+    const rankingGeral = getRankingByYear();
+    return rankingGeral.find(player => player.player === name);
+}
+
 function getRankingByYear(year) {
-    if (!year) return allRankings;
-    
-    return (allRankings.find(item => item.year === year)?.rankings || allRankings.flatMap(item => item.rankings));
+    return (allRankings.find(item => item.year === year)?.rankings || allRankings.find(item => item.year === 'all')?.rankings);
 }
 
 module.exports = {
-    getMostKiller,
+    getTopKiller,
     consolidateYear,
-    getMostProfitable,
+    getTopProfitable,
     getRankings,
-    getRankingByYear
+    getRankingByYear,
+    getPlayer
 };
