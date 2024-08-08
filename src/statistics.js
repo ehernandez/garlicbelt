@@ -1,36 +1,42 @@
 const reader = require('../src/reader');
 const rankings = require('../src/rankings');
-const filePath = './resources/tournaments.json';
 
 let allRankings = [];
 
-async function createRanking() {
-    if (allRankings.length === 0) { 
-        try {
-            const tournaments = await reader.readTournamentsFromFile(filePath);
-            const rankingsByYear = {};
+async function createRanking(tournaments) {
+    try {
+        const rankingsByYear = {};
 
-            tournaments.forEach(tournament => {
-                const year = new Date(tournament.date).getFullYear();
-                const finalRanking = rankings.finalTournamentRanking(tournament);
+        tournaments.forEach(tournament => {
+            const year = new Date(tournament.date).getFullYear();
+            const finalRanking = rankings.finalTournamentRanking(tournament);
 
-                if (!rankingsByYear[year]) {
-                    rankingsByYear[year] = [];
-                }
+            if (!rankingsByYear[year]) {
+                rankingsByYear[year] = [];
+            }
 
-                rankingsByYear[year].push(...finalRanking);
-            });
+            rankingsByYear[year].push(...finalRanking);
+            //console.log(year);
+        });
 
-            Object.keys(rankingsByYear).forEach(year => {
-                const consolidated = consolidateYear(rankingsByYear[year]);
-                allRankings.push({ year, rankings: consolidated });
-            });
+        Object.keys(rankingsByYear).forEach(year => {
+            const consolidated = consolidateYear(rankingsByYear[year]);
+            allRankings.push({ year, rankings: consolidated });
+        });
 
-            //allRankings = rankingsByYear;
-        } catch (err) {
-            console.error("Erro ao criar o ranking:", err);
-        }
+        allRankings = rankingsByYear;
+    } catch (err) {
+        console.error("Erro ao criar o ranking:", err);
     }
+}
+
+
+async function getRankings(filePath) {
+    if (allRankings.length === 0) {
+        await createRanking(filePath);
+    }
+
+    return allRankings;
 }
 
 function consolidateYear(rankings) {
@@ -66,7 +72,6 @@ function consolidateYear(rankings) {
     return consolidated;
 }
 
-
 function getMostKiller(players) {
     return players.reduce((topPlayer, currentPlayer) => {
         return (currentPlayer.kills > topPlayer.kills) ? currentPlayer : topPlayer;
@@ -82,5 +87,6 @@ function getMostProfitable(players) {
 module.exports = {
     getMostKiller,
     consolidateYear,
-    getMostProfitable
+    getMostProfitable,
+    getRankings
 };
